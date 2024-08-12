@@ -35,7 +35,9 @@ module support() {
     // External box
     difference() {
         // Caixa externa
-        cube([external_length, external_width, total_height]);
+        translate([2, 2, 0])
+            linear_extrude(total_height)offset(r=2)square([external_length-4, external_width-4]);
+        // cube([external_length, external_width, total_height]);
 
         // Internal box
         translate([start_inside_cube_x, start_inside_cube_y, base_thickness])
