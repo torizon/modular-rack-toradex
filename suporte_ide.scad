@@ -28,7 +28,7 @@ hole_heigth = 6;
 
 space_beetween_hole_pin = 0.1;
 
-wall_thickness = 5;
+wall_thickness = 6;
 
 // Função para criar o suporte com a parte da frente ajustada
 module support() {
