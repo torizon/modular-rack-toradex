@@ -35,9 +35,9 @@ module support() {
     // External box
     difference() {
         // Caixa externa
-        translate([2, 2, 0])
-            linear_extrude(total_height)offset(r=2)square([external_length-4, external_width-4]);
-        // cube([external_length, external_width, total_height]);
+        //translate([2, 2, 0])
+            //linear_extrude(total_height)offset(r=2)square([external_length-4, external_width-4]);
+        cube([external_length, external_width, total_height]);
 
         // Internal box
         translate([start_inside_cube_x, start_inside_cube_y, base_thickness])
@@ -71,22 +71,38 @@ module support() {
         translate([0, start_inside_cube_y + wall_thickness_corner, base_thickness])
             cube([internal_length - 2 * wall_thickness_corner, internal_width - 2 * wall_thickness_corner, total_height - base_thickness]);
 
-        // Faz o buraco para caber o pino no lado esquerdo
+        // Faz o buraco para caber o pino superior lado esquerdo
         translate([distance_x_hole, distance_y_hole, 0])
-            cube([external_length - 2 * distance_x_hole, hole_width, hole_heigth]);
+            cube([external_length - 2 * distance_x_hole, hole_width + 2*space_beetween_hole_pin, hole_heigth]);
 
-        // Faz o buraco para caber o pino no lado direito
+        // Faz o buraco para caber o pino superior lado direito
         translate([distance_x_hole, external_width - distance_y_hole - hole_width, 0])
-            cube([external_length - 2 * distance_x_hole, hole_width, hole_heigth]);
+            cube([external_length - 2 * distance_x_hole, hole_width + 2*space_beetween_hole_pin, hole_heigth]);
+
+        // Faz o buraco dianteiro esquerdo
+        translate([external_length - hole_heigth - space_beetween_hole_pin, distance_y_hole, wall_thickness])
+            cube([external_length - hole_heigth - space_beetween_hole_pin, hole_width + 2*space_beetween_hole_pin, total_height - 2*wall_thickness]);
+
+        // Faz o buraco dianteiro direito
+        translate([external_length - hole_heigth - space_beetween_hole_pin, external_width - distance_y_hole - 2*space_beetween_hole_pin - hole_width, wall_thickness])
+            cube([external_length - hole_heigth - space_beetween_hole_pin, hole_width + 2 * space_beetween_hole_pin, total_height - 2*wall_thickness]);
     }
 
     // Faz o pino superior esquerdo
         translate([distance_x_hole + space_beetween_hole_pin, distance_y_hole + space_beetween_hole_pin, total_height])
-            cube([external_length - 2 * distance_x_hole - 2 * space_beetween_hole_pin, hole_width - 2 * space_beetween_hole_pin, hole_heigth - space_beetween_hole_pin]);
+            cube([external_length - 2*distance_x_hole - 2*space_beetween_hole_pin, hole_width, hole_heigth - space_beetween_hole_pin]);
     
     // Faz o pino superior direito
-        translate([distance_x_hole + space_beetween_hole_pin, external_width - distance_y_hole - 2 * space_beetween_hole_pin - hole_width, total_height])
-            cube([external_length - 2 * distance_x_hole - 2 * space_beetween_hole_pin, hole_width - 2 * space_beetween_hole_pin, hole_heigth - space_beetween_hole_pin]);
+        translate([distance_x_hole + space_beetween_hole_pin, external_width - distance_y_hole - space_beetween_hole_pin - hole_width, total_height])
+            cube([external_length - 2*distance_x_hole - 2*space_beetween_hole_pin, hole_width, hole_heigth - space_beetween_hole_pin]);
+    
+    // Faz o pino traseiro esquerdo
+        translate([-(hole_heigth - space_beetween_hole_pin), distance_y_hole + space_beetween_hole_pin, wall_thickness + space_beetween_hole_pin])
+            cube([hole_heigth - space_beetween_hole_pin, hole_width, total_height - 2*wall_thickness - space_beetween_hole_pin]);
+
+    // Faz o pino traseiro direito
+        translate([-(hole_heigth - space_beetween_hole_pin), external_width - distance_y_hole - space_beetween_hole_pin - hole_width, wall_thickness + space_beetween_hole_pin])
+            cube([hole_heigth - space_beetween_hole_pin, hole_width, total_height - 2*wall_thickness - space_beetween_hole_pin]);
 }
 
 // Desenhar o suporte
