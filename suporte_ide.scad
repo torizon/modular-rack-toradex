@@ -48,8 +48,8 @@ module support() {
             cube([external_length, start_inside_cube_y - 2 * wall_thickness, total_height - base_thickness]);
 
         // Remove back wall
-        translate([0, start_inside_cube_y - wall_thickness, base_thickness])
-            cube([start_inside_cube_x - wall_thickness, internal_width + 2 * wall_thickness, total_height - base_thickness]);
+        translate([0, wall_thickness, base_thickness])
+            cube([start_inside_cube_x - wall_thickness, external_width - 2*wall_thickness, total_height - base_thickness]);
 
         // Remove front wall
         translate([external_width - start_inside_cube_x + wall_thickness, start_inside_cube_y - wall_thickness, base_thickness])
@@ -60,12 +60,12 @@ module support() {
             cube([internal_length-2*base_size, internal_width-2*base_size, total_height - base_thickness]);
 
         // Remove front wall on internal box
-        translate([start_inside_cube_x + internal_length, start_inside_cube_y+left_distance, base_thickness])
-            cube([start_inside_cube_x, internal_width - left_distance - right_distance, total_height - base_thickness]);
+        translate([start_inside_cube_x + internal_length, start_inside_cube_y + left_distance, base_thickness])
+            cube([wall_thickness, internal_width - left_distance - right_distance, total_height - base_thickness]);
 
         // Remove back wall on internal box
-        translate([0, start_inside_cube_y + wall_thickness_corner, base_thickness])
-            cube([internal_length - 2 * wall_thickness_corner, internal_width - 2 * wall_thickness_corner, total_height - base_thickness]);
+        translate([start_inside_cube_x - wall_thickness, start_inside_cube_y + wall_thickness_corner, base_thickness])
+            cube([wall_thickness, internal_width - 2*wall_thickness_corner, total_height - base_thickness]);
 
         // Hole on the floor, left side
         translate([distance_x_hole, distance_y_hole, 0])
