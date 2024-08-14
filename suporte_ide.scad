@@ -30,13 +30,9 @@ space_beetween_hole_pin = 0.1;
 
 wall_thickness = 6;
 
-// Função para criar o suporte com a parte da frente ajustada
 module support() {
     // External box
     difference() {
-        // Caixa externa
-        //translate([2, 2, 0])
-            //linear_extrude(total_height)offset(r=2)square([external_length-4, external_width-4]);
         cube([external_length, external_width, total_height]);
 
         // Internal box
