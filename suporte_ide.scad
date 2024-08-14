@@ -75,6 +75,10 @@ module support() {
         translate([start_inside_cube_x + wall_thickness_corner, start_inside_cube_y + internal_width, base_thickness])
             cube([internal_length - 2*wall_thickness_corner, wall_thickness, total_height - base_thickness]);
 
+        // Remove roof of internal box
+        translate([start_inside_cube_x - wall_thickness, start_inside_cube_y - wall_thickness, base_thickness + total_height/2])
+            cube([internal_length + 2*wall_thickness, internal_width + 2*wall_thickness, total_height/2]);
+
         // Hole on the floor, left side
         translate([distance_x_hole, distance_y_hole, 0])
             cube([external_length - 2 * distance_x_hole, hole_width + 2*space_beetween_hole_pin, hole_heigth]);
