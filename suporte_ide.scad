@@ -1,5 +1,5 @@
 // Board dimensions
-internal_length = 50;
+internal_length = 80;
 internal_width = 50;
 
 external_length = 140;
@@ -66,6 +66,14 @@ module support() {
         // Remove back wall on internal box
         translate([start_inside_cube_x - wall_thickness, start_inside_cube_y + wall_thickness_corner, base_thickness])
             cube([wall_thickness, internal_width - 2*wall_thickness_corner, total_height - base_thickness]);
+
+        // Remove left wall on internal box
+        translate([start_inside_cube_x + wall_thickness_corner, start_inside_cube_y - wall_thickness, base_thickness])
+            cube([internal_length - 2*wall_thickness_corner, wall_thickness, total_height - base_thickness]);
+
+        // Remove right wall on internal box
+        translate([start_inside_cube_x + wall_thickness_corner, start_inside_cube_y + internal_width, base_thickness])
+            cube([internal_length - 2*wall_thickness_corner, wall_thickness, total_height - base_thickness]);
 
         // Hole on the floor, left side
         translate([distance_x_hole, distance_y_hole, 0])
