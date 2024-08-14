@@ -118,12 +118,18 @@ module support() {
         for (i = [0:3]) {
             translate([0.8*wall_thickness + i * (square_size + space_between), 0, 2.5*base_thickness])
             cube([square_size, wall_thickness, total_height - 1.5*wall_thickness -  2*base_thickness]);
+
+            translate([0.8*wall_thickness + i * (square_size + space_between) + 0.5*wall_thickness, distance_y_hole, 2.5*base_thickness - hole_heigth])
+            cube([square_size - wall_thickness, hole_width + 2*space_beetween_hole_pin, hole_heigth]);
         }
 
         // Square holes on right side
         for (i = [0:3]) {
             translate([0.8*wall_thickness + i * (square_size + space_between), external_length - wall_thickness, 2.5*base_thickness])
             cube([square_size, wall_thickness, total_height - 1.5*wall_thickness -  2*base_thickness]);
+
+            translate([0.8*wall_thickness + i * (square_size + space_between) + 0.5*wall_thickness, external_length - wall_thickness + distance_y_hole, 2.5*base_thickness - hole_heigth])
+            cube([square_size - wall_thickness, hole_width + 2*space_beetween_hole_pin, hole_heigth]);
         }
 
     }
