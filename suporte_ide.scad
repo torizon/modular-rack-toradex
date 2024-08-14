@@ -110,6 +110,22 @@ module support() {
         // Hole on the front, right side
         translate([external_length - hole_heigth - space_beetween_hole_pin, external_width - distance_y_hole - 2*space_beetween_hole_pin - hole_width, wall_thickness])
             cube([external_length - hole_heigth - space_beetween_hole_pin, hole_width + 2 * space_beetween_hole_pin, total_height - 2*wall_thickness]);
+
+        square_size = 25;
+        space_between = (external_length - 2 * wall_thickness - 4 * square_size) / 3;
+
+        // Square holes on left side
+        for (i = [0:3]) {
+            translate([0.8*wall_thickness + i * (square_size + space_between), 0, 2.5*base_thickness])
+            cube([square_size, wall_thickness, total_height - 1.5*wall_thickness -  2*base_thickness]);
+        }
+
+        // Square holes on right side
+        for (i = [0:3]) {
+            translate([0.8*wall_thickness + i * (square_size + space_between), external_length - wall_thickness, 2.5*base_thickness])
+            cube([square_size, wall_thickness, total_height - 1.5*wall_thickness -  2*base_thickness]);
+        }
+
     }
 
     // Pin on roof, left side
