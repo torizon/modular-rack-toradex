@@ -20,7 +20,7 @@ left_distance = 15;
 right_distance = 6;
 wall_thickness_corner = 10;
 
-pin_width = 2;
+pin_width = 5.5;
 hole_heigth = 6;
 
 wall_thickness_external = 10;
