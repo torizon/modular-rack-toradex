@@ -16,9 +16,11 @@ total_height = 40;
 
 base_size = 10;
 
-left_distance = 15;
-right_distance = 6;
-wall_thickness_corner = 10;
+left_distance_front = 10;
+right_distance_front = 5;
+left_distance_back = 10;
+right_distance_back = 4;
+internal_lateral_thickness = 10;
 
 pin_width = 5.5;
 hole_heigth = 6;
@@ -61,16 +63,16 @@ module support() {
             cube([internal_length-2*base_size, internal_width-2*base_size, total_height - base_thickness]);
 
         // Remove front wall on internal box
-        translate([start_inside_cube_x + internal_length, start_inside_cube_y + left_distance, base_thickness])
-            cube([wall_thickness_internal, internal_width - left_distance - right_distance, total_height - base_thickness]);
+        translate([start_inside_cube_x + internal_length, start_inside_cube_y + left_distance_front, base_thickness])
+            cube([wall_thickness_internal, internal_width - left_distance_front - right_distance_front, total_height - base_thickness]);
 
         // Remove back wall on internal box
-        translate([start_inside_cube_x - wall_thickness_internal, start_inside_cube_y + wall_thickness_corner, base_thickness])
-            cube([wall_thickness_internal, internal_width - 2*wall_thickness_corner, total_height - base_thickness]);
+        translate([start_inside_cube_x - wall_thickness_internal, start_inside_cube_y + left_distance_back, base_thickness])
+            cube([wall_thickness_internal, internal_width - left_distance_back - right_distance_back, total_height - base_thickness]);
 
         // Remove lateral walls on internal box
-        translate([start_inside_cube_x + wall_thickness_corner, wall_thickness_external, base_thickness])
-            cube([internal_length - 2*wall_thickness_corner, external_width -2*wall_thickness_external, total_height - base_thickness]);
+        translate([start_inside_cube_x + internal_lateral_thickness, wall_thickness_external, base_thickness])
+            cube([internal_length - 2*internal_lateral_thickness, external_width -2*wall_thickness_external, total_height - base_thickness]);
 
         // Remove roof of internal box
         translate([wall_thickness_external, wall_thickness_external, base_thickness + total_height/2])
