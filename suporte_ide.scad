@@ -77,19 +77,19 @@ module support() {
             cube([external_length - 2*wall_thickness_external, external_width - 2*wall_thickness_external, total_height/2]);
 
         // Hole on the floor, left side
-        translate([distance_major_hole, distance_minor_hole, 0])
-            cube([external_length - 2 * distance_major_hole, pin_width + 2*space_beetween_hole_pin, hole_heigth]);
+        translate([0, distance_minor_hole, 0])
+            cube([external_length, pin_width + 2*space_beetween_hole_pin, hole_heigth]);
 
         // Hole on the floor, right side
-        translate([distance_major_hole, external_width - distance_minor_hole - pin_width, 0])
-            cube([external_length - 2 * distance_major_hole, pin_width + 2*space_beetween_hole_pin, hole_heigth]);
+        translate([0, external_width - distance_minor_hole - pin_width, 0])
+            cube([external_length, pin_width + 2*space_beetween_hole_pin, hole_heigth]);
 
         // Hole on the front, left side
-        translate([external_length - hole_heigth - space_beetween_hole_pin, distance_minor_hole, distance_major_hole])
+        translate([external_length - hole_heigth - space_beetween_hole_pin, distance_minor_hole, 1.5*distance_major_hole])
             cube([external_length - hole_heigth - space_beetween_hole_pin, pin_width + 2*space_beetween_hole_pin, total_height - 2*distance_major_hole]);
 
         // Hole on the front, right side
-        translate([external_length - hole_heigth - space_beetween_hole_pin, external_width - distance_minor_hole - 2*space_beetween_hole_pin - pin_width, distance_major_hole])
+        translate([external_length - hole_heigth - space_beetween_hole_pin, external_width - distance_minor_hole - 2*space_beetween_hole_pin - pin_width, 1.5*distance_major_hole])
             cube([external_length - hole_heigth - space_beetween_hole_pin, pin_width + 2 * space_beetween_hole_pin, total_height - 2*distance_major_hole]);
 
         square_size = 25;
@@ -116,19 +116,19 @@ module support() {
     }
 
     // Pin on roof, left side
-        translate([distance_major_hole + space_beetween_hole_pin, distance_minor_hole + space_beetween_hole_pin, total_height])
-            cube([external_length - 2*distance_major_hole - 2*space_beetween_hole_pin, pin_width, hole_heigth - space_beetween_hole_pin]);
+        translate([0, distance_minor_hole + space_beetween_hole_pin, total_height])
+            cube([external_length, pin_width, hole_heigth - space_beetween_hole_pin]);
     
     // Pin on roof, right side
-        translate([distance_major_hole + space_beetween_hole_pin, external_width - distance_minor_hole - space_beetween_hole_pin - pin_width, total_height])
-            cube([external_length - 2*distance_major_hole - 2*space_beetween_hole_pin, pin_width, hole_heigth - space_beetween_hole_pin]);
+        translate([0, external_width - distance_minor_hole - space_beetween_hole_pin - pin_width, total_height])
+            cube([external_length, pin_width, hole_heigth - space_beetween_hole_pin]);
     
     // Pin on back, left side
-        translate([-(hole_heigth - space_beetween_hole_pin), distance_minor_hole + space_beetween_hole_pin, distance_major_hole + space_beetween_hole_pin])
+        translate([-(hole_heigth - space_beetween_hole_pin), distance_minor_hole + space_beetween_hole_pin, 1.5*distance_major_hole + space_beetween_hole_pin])
             cube([hole_heigth - space_beetween_hole_pin, pin_width, total_height - 2*distance_major_hole - space_beetween_hole_pin]);
 
     // Pin on back, right side
-        translate([-(hole_heigth - space_beetween_hole_pin), external_width - distance_minor_hole - space_beetween_hole_pin - pin_width, distance_major_hole + space_beetween_hole_pin])
+        translate([-(hole_heigth - space_beetween_hole_pin), external_width - distance_minor_hole - space_beetween_hole_pin - pin_width, 1.5*distance_major_hole + space_beetween_hole_pin])
             cube([hole_heigth - space_beetween_hole_pin, pin_width, total_height - 2*distance_major_hole - space_beetween_hole_pin]);
 }
 
