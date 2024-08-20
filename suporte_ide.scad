@@ -14,7 +14,7 @@ base_thickness = 5;
 // Total height of the support
 total_height = 40;
 
-base_size = 10;
+base_size = 5.5;
 
 left_distance_front = 10;
 right_distance_front = 5;
