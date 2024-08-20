@@ -80,12 +80,12 @@ module support() {
             cube([external_length, start_inside_cube_y - wall_thickness_external - wall_thickness_internal, total_height - base_thickness]);
 
         // Remove back wall
-        translate([0, wall_thickness_external, base_thickness])
-            cube([start_inside_cube_x - wall_thickness_internal, external_width - 2*wall_thickness_external, total_height - base_thickness]);
+        translate([0, wall_thickness_external, 0])
+            cube([start_inside_cube_x - wall_thickness_internal, external_width - 2*wall_thickness_external, total_height]);
 
         // Remove front wall
-        translate([external_width - start_inside_cube_x + wall_thickness_internal, wall_thickness_external, base_thickness])
-            cube([start_inside_cube_x - wall_thickness_internal, external_width - 2*wall_thickness_external, total_height - base_thickness]);
+        translate([external_width - start_inside_cube_x + wall_thickness_internal, wall_thickness_external, 0])
+            cube([start_inside_cube_x - wall_thickness_internal, external_width - 2*wall_thickness_external, total_height]);
         
         // Internal hole on the floor for board
         translate([start_inside_cube_x+base_size, start_inside_cube_y+base_size])
