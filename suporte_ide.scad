@@ -33,6 +33,9 @@ space_beetween_hole_pin = 0.15;
 distance_major_hole = 0.8*wall_thickness_external;
 distance_minor_hole = (wall_thickness_external - pin_width - 2*space_beetween_hole_pin)/2;
 
+foot_size = 5.5;
+foot_height = 8.5;
+
 module hole_trapezium(){
     linear_extrude(height = external_length - wall_thickness_external){
         polygon(points=[[-3,hole_heigth],[-2.4, 0],[2.4, 0],[3,hole_heigth]]);
@@ -158,6 +161,23 @@ module support() {
     // Pin on back, right side
         translate([-(hole_heigth - space_beetween_hole_pin), external_width - distance_minor_hole - space_beetween_hole_pin - pin_width, 1.5*distance_major_hole + space_beetween_hole_pin])
             cube([hole_heigth - space_beetween_hole_pin, pin_width, total_height - 2*distance_major_hole - space_beetween_hole_pin]);
+
+
+    // Foot back left
+    translate([start_inside_cube_x, start_inside_cube_y, base_thickness])
+        cube([foot_size, foot_size, foot_height]);
+
+    // Foot back right
+    translate([start_inside_cube_x, start_inside_cube_y + internal_width - foot_size, base_thickness])
+        cube([foot_size, foot_size, foot_height]);
+
+    // Foot front left
+    translate([start_inside_cube_x + internal_length - foot_size, start_inside_cube_y, base_thickness])
+        cube([foot_size, foot_size, foot_height]);
+
+    // Foot front right
+    translate([start_inside_cube_x + internal_length - foot_size, start_inside_cube_y + internal_width - foot_size, base_thickness])
+        cube([foot_size, foot_size, foot_height]);
 }
 
 difference() {
