@@ -2,8 +2,8 @@
 internal_length = 80;
 internal_width = 50;
 
-external_length = 140;
-external_width = 140;
+external_length = 161;
+external_width = 161;
 
 // Espessura das paredes e base
 start_inside_cube_x = (external_length - internal_length)/2;
