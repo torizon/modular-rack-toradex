@@ -45,6 +45,20 @@ module pin_trapezium(){
     }
 }
 
+module test_extruder(){
+    translate([60, 0, 0])
+        cube([10000, 10000, 500]);
+
+    translate([-10, 10, 0])
+        cube([10000, 10000, 500]);
+
+    translate([-10, 0, 0])
+        cube([10000, 10000, 37]);
+
+    // translate([-10, 0, 9])
+    //     cube([10000, 10000, 10000]);
+}
+
 module support() {
     // External box
     difference() {
@@ -146,4 +160,7 @@ module support() {
             cube([hole_heigth - space_beetween_hole_pin, pin_width, total_height - 2*distance_major_hole - space_beetween_hole_pin]);
 }
 
-support();
+difference() {
+    support();
+    // test_extruder();
+}
