@@ -41,11 +41,11 @@ module test_extruder(){
 
 module support(internal_length, internal_width) {
     base_size = 5.5;
-    left_distance_front = 10;
-    right_distance_front = 5;
-    left_distance_back = 10;
-    right_distance_back = 4;
-    internal_lateral_thickness = 10;
+    left_distance_front = 5.5;
+    right_distance_front = 5.5;
+    left_distance_back = 5.5;
+    right_distance_back = 5.5;
+    internal_lateral_thickness = 5.5;
 
     // Espessura das paredes e base
     start_inside_cube_x = (external_length - internal_length)/2;
@@ -176,6 +176,6 @@ module support(internal_length, internal_width) {
 }
 
 difference() {
-    support(121.5, 121.5);
+    support(72.5, 100.5);
     // test_extruder();
 }
