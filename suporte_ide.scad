@@ -104,8 +104,8 @@ module support() {
             cube([internal_length - 2*internal_lateral_thickness, external_width -2*wall_thickness_external, total_height - base_thickness]);
 
         // Remove roof of internal box
-        translate([wall_thickness_external, wall_thickness_external, base_thickness + total_height/2])
-            cube([external_length - 2*wall_thickness_external, external_width - 2*wall_thickness_external, total_height/2]);
+        translate([0, wall_thickness_external, base_thickness + total_height/2])
+            cube([external_length, external_width - 2*wall_thickness_external, total_height/2]);
 
         // Hole on the floor, left side
         translate([0, wall_thickness_external/2, 0]) rotate([90,0,90])
