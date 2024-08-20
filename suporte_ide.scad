@@ -33,6 +33,18 @@ space_beetween_hole_pin = 0.15;
 distance_major_hole = 0.8*wall_thickness_external;
 distance_minor_hole = (wall_thickness_external - pin_width - 2*space_beetween_hole_pin)/2;
 
+module hole_trapezium(){
+    linear_extrude(height = external_length - wall_thickness_external){
+        polygon(points=[[-3,hole_heigth],[-2.4, 0],[2.4, 0],[3,hole_heigth]]);
+    }
+}
+
+module pin_trapezium(){
+    linear_extrude(height = external_length - wall_thickness_external - space_beetween_hole_pin){
+        polygon(points=[[-3 + space_beetween_hole_pin, hole_heigth - space_beetween_hole_pin],[-2.4 + space_beetween_hole_pin, 0 + space_beetween_hole_pin],[2.4 - space_beetween_hole_pin, 0 + space_beetween_hole_pin],[3 - space_beetween_hole_pin, hole_heigth - space_beetween_hole_pin]]);
+    }
+}
+
 module support() {
     // External box
     difference() {
@@ -79,12 +91,12 @@ module support() {
             cube([external_length - 2*wall_thickness_external, external_width - 2*wall_thickness_external, total_height/2]);
 
         // Hole on the floor, left side
-        translate([0, distance_minor_hole, 0])
-            cube([external_length, pin_width + 2*space_beetween_hole_pin, hole_heigth]);
+        translate([0, wall_thickness_external/2, 0]) rotate([90,0,90])
+            hole_trapezium();
 
         // Hole on the floor, right side
-        translate([0, external_width - distance_minor_hole - pin_width, 0])
-            cube([external_length, pin_width + 2*space_beetween_hole_pin, hole_heigth]);
+        translate([0, external_width - wall_thickness_external/2, 0]) rotate([90,0,90])
+            hole_trapezium();
 
         // Hole on the front, left side
         translate([external_length - hole_heigth - space_beetween_hole_pin, distance_minor_hole, 1.5*distance_major_hole])
@@ -118,12 +130,12 @@ module support() {
     }
 
     // Pin on roof, left side
-        translate([0, distance_minor_hole + space_beetween_hole_pin, total_height])
-            cube([external_length, pin_width, hole_heigth - space_beetween_hole_pin]);
+        translate([0, wall_thickness_external/2, total_height]) rotate([90,0,90])
+            pin_trapezium();
     
     // Pin on roof, right side
-        translate([0, external_width - distance_minor_hole - space_beetween_hole_pin - pin_width, total_height])
-            cube([external_length, pin_width, hole_heigth - space_beetween_hole_pin]);
+        translate([0, external_width - wall_thickness_external/2, total_height]) rotate([90,0,90])
+            pin_trapezium();
     
     // Pin on back, left side
         translate([-(hole_heigth - space_beetween_hole_pin), distance_minor_hole + space_beetween_hole_pin, 1.5*distance_major_hole + space_beetween_hole_pin])
