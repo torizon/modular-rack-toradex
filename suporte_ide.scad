@@ -1,26 +1,9 @@
 // Board dimensions
-internal_length = 80;
-internal_width = 50;
-
 external_length = 161;
 external_width = 161;
 
-// Espessura das paredes e base
-start_inside_cube_x = (external_length - internal_length)/2;
-start_inside_cube_y = (external_width - internal_width)/2;
-base_thickness = 5;
-
-
 // Total height of the support
 total_height = 40;
-
-base_size = 5.5;
-
-left_distance_front = 10;
-right_distance_front = 5;
-left_distance_back = 10;
-right_distance_back = 4;
-internal_lateral_thickness = 10;
 
 pin_width = 5.5;
 hole_heigth = 6;
@@ -29,12 +12,6 @@ wall_thickness_external = 10;
 wall_thickness_internal = 5;
 
 space_beetween_hole_pin = 0.15;
-
-distance_major_hole = 0.8*wall_thickness_external;
-distance_minor_hole = (wall_thickness_external - pin_width - 2*space_beetween_hole_pin)/2;
-
-foot_size = 5.5;
-foot_height = 8.5;
 
 module hole_trapezium(){
     linear_extrude(height = external_length - wall_thickness_external){
@@ -62,7 +39,25 @@ module test_extruder(){
     //     cube([10000, 10000, 10000]);
 }
 
-module support() {
+module support(internal_length, internal_width) {
+    base_size = 5.5;
+    left_distance_front = 10;
+    right_distance_front = 5;
+    left_distance_back = 10;
+    right_distance_back = 4;
+    internal_lateral_thickness = 10;
+
+    // Espessura das paredes e base
+    start_inside_cube_x = (external_length - internal_length)/2;
+    start_inside_cube_y = (external_width - internal_width)/2;
+    base_thickness = 5;
+
+    foot_size = 5.5;
+    foot_height = 8.5;
+
+    distance_major_hole = 0.8*wall_thickness_external;
+    distance_minor_hole = (wall_thickness_external - pin_width - 2*space_beetween_hole_pin)/2;
+
     // External box
     difference() {
         cube([external_length, external_width, total_height]);
@@ -181,6 +176,6 @@ module support() {
 }
 
 difference() {
-    support();
+    support(121.5, 121.5);
     // test_extruder();
 }
