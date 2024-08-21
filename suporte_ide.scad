@@ -50,7 +50,7 @@ module support(internal_length, internal_width) {
     // Espessura das paredes e base
     start_inside_cube_x = (external_length - internal_length)/2;
     start_inside_cube_y = (external_width - internal_width)/2;
-    base_thickness = 5;
+    base_thickness = 6;
 
     foot_size = 5.5;
     foot_height = 8.5;
@@ -74,13 +74,21 @@ module support(internal_length, internal_width) {
         translate([0, start_inside_cube_y + internal_width + wall_thickness_internal, base_thickness])
             cube([external_length, start_inside_cube_y - wall_thickness_external - wall_thickness_internal, total_height - base_thickness]);
 
-        // Remove back wall
-        translate([0, wall_thickness_external, 0])
-            cube([start_inside_cube_x - wall_thickness_internal, external_width - 2*wall_thickness_external, total_height]);
+        // Remove back wall, including floor
+        translate([0, wall_thickness_external, base_thickness])
+            cube([start_inside_cube_x - wall_thickness_internal, external_width - 2*wall_thickness_external, total_height - base_thickness]);
 
-        // Remove front wall
-        translate([external_width - start_inside_cube_x + wall_thickness_internal, wall_thickness_external, 0])
-            cube([start_inside_cube_x - wall_thickness_internal, external_width - 2*wall_thickness_external, total_height]);
+        // Remove back wall, mantaining floor
+        translate([0, wall_thickness_external, 0])
+            cube([start_inside_cube_x - 2*wall_thickness_internal, external_width - 2*wall_thickness_external, total_height]);
+
+        // Remove front wall, including floor
+        translate([external_width - start_inside_cube_x + wall_thickness_internal, wall_thickness_external, base_thickness])
+            cube([start_inside_cube_x - wall_thickness_internal, external_width - 2*wall_thickness_external, total_height - base_thickness]);
+
+        // Remove front wall, mantaining floor
+        translate([external_width - start_inside_cube_x + 2*wall_thickness_internal, wall_thickness_external, 0])
+            cube([start_inside_cube_x - 2*wall_thickness_internal, external_width - 2*wall_thickness_external, total_height]);
         
         // Internal hole on the floor for board
         translate([start_inside_cube_x+base_size, start_inside_cube_y+base_size])
