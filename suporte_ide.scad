@@ -39,15 +39,10 @@ module test_extruder(){
     //     cube([10000, 10000, 10000]);
 }
 
-module support(internal_length, internal_width) {
-    base_size = 5.5;
-    left_distance_front = 5.5;
-    right_distance_front = 5.5;
-    left_distance_back = 5.5;
-    right_distance_back = 5.5;
-    internal_lateral_thickness = 5.5;
+module support() {
+    // Select the board
+    include <boards_dimensions/board.scad>
 
-    // Espessura das paredes e base
     start_inside_cube_x = (external_length - internal_length)/2;
     start_inside_cube_y = (external_width - internal_width)/2;
     base_thickness = 6;
@@ -184,6 +179,6 @@ module support(internal_length, internal_width) {
 }
 
 difference() {
-    support(72.5, 100.5);
+    support();
     // test_extruder();
 }
