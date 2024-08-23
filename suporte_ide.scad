@@ -21,7 +21,7 @@ module hole_trapezium(){
 
 module pin_trapezium(){
     linear_extrude(height = external_length - wall_thickness_external - space_beetween_hole_pin){
-        polygon(points=[[-3 + space_beetween_hole_pin, hole_heigth - space_beetween_hole_pin],[-2.4 + space_beetween_hole_pin, 0 + space_beetween_hole_pin],[2.4 - space_beetween_hole_pin, 0 + space_beetween_hole_pin],[3 - space_beetween_hole_pin, hole_heigth - space_beetween_hole_pin]]);
+        polygon(points=[[-3 + space_beetween_hole_pin, hole_heigth - space_beetween_hole_pin],[-2.4 + space_beetween_hole_pin, 0],[2.4 - space_beetween_hole_pin, 0],[3 - space_beetween_hole_pin, hole_heigth - space_beetween_hole_pin]]);
     }
 }
 
