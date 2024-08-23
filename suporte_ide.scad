@@ -145,12 +145,12 @@ module support() {
     }
 
     // Pin on roof, left side
-        translate([0, wall_thickness_external/2, total_height]) rotate([90,0,90])
-            pin_trapezium(external_length - wall_thickness_external - space_beetween_hole_pin);
+    translate([0, wall_thickness_external/2, total_height]) rotate([90,0,90])
+        pin_trapezium(external_length - wall_thickness_external - space_beetween_hole_pin);
     
     // Pin on roof, right side
-        translate([0, external_width - wall_thickness_external/2, total_height]) rotate([90,0,90])
-            pin_trapezium(external_length - wall_thickness_external - space_beetween_hole_pin);
+    translate([0, external_width - wall_thickness_external/2, total_height]) rotate([90,0,90])
+        pin_trapezium(external_length - wall_thickness_external - space_beetween_hole_pin);
     
     // Pin on back, left side
         translate([-(hole_heigth - space_beetween_hole_pin), distance_minor_hole + space_beetween_hole_pin, 1.5*distance_major_hole + space_beetween_hole_pin])
