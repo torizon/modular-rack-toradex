@@ -121,11 +121,11 @@ module support() {
         translate([external_length - hole_heigth - space_beetween_hole_pin, external_width - distance_minor_hole - 2*space_beetween_hole_pin - pin_width, 1.5*distance_major_hole])
             cube([external_length - hole_heigth - space_beetween_hole_pin, pin_width + 2 * space_beetween_hole_pin, total_height - 2*distance_major_hole]);
 
-        square_size = 25;
-        space_between = (external_length - 2 * wall_thickness_external - 4 * square_size) / 3;
+        square_size = 42;
+        space_between = (external_length - 2 * wall_thickness_external - 3 * square_size) / 2;
 
         // Square holes on left side
-        for (i = [0:3]) {
+        for (i = [0:2]) {
             translate([0.8*wall_thickness_external + i * (square_size + space_between), 0, 2.5*base_thickness])
             cube([square_size, wall_thickness_external, total_height - 1*wall_thickness_external -  2*base_thickness]);
 
@@ -134,7 +134,7 @@ module support() {
         }
 
         // Square holes on right side
-        for (i = [0:3]) {
+        for (i = [0:2]) {
             translate([0.8*wall_thickness_external + i * (square_size + space_between), external_length - wall_thickness_external, 2.5*base_thickness])
             cube([square_size, wall_thickness_external, total_height - 1*wall_thickness_external -  2*base_thickness]);
 
