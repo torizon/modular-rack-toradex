@@ -2,9 +2,6 @@
 external_length = 161;
 external_width = 161;
 
-// Total height of the support
-total_height = 40;
-
 pin_width = 5.5;
 hole_heigth = 6;
 
@@ -41,14 +38,10 @@ module test_extruder(){
 
 module support() {
     // Select the board
-    include <boards_dimensions/board.scad>
+    include <boards_dimensions/boards.scad>
 
     start_inside_cube_x = (external_length - internal_length)/2;
     start_inside_cube_y = (external_width - internal_width)/2;
-    base_thickness = 6;
-
-    foot_size = 5.5;
-    foot_height = 8.5;
 
     distance_major_hole = 0.8*wall_thickness_external;
     distance_minor_hole = (wall_thickness_external - pin_width - 2*space_beetween_hole_pin)/2;
@@ -102,7 +95,7 @@ module support() {
             cube([internal_length - 2*internal_lateral_thickness, external_width -2*wall_thickness_external, total_height - base_thickness]);
 
         // Remove roof of internal box
-        translate([0, wall_thickness_external, base_thickness + total_height/2])
+        translate([0, wall_thickness_external, internal_heigth])
             cube([external_length, external_width - 2*wall_thickness_external, total_height/2]);
 
         // Hole on the floor, left side
