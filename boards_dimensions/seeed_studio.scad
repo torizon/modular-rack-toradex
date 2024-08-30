@@ -15,6 +15,10 @@ left_distance_back = 5.5;
 right_distance_back = 5.5;
 internal_lateral_thickness = 5.5;
 
-foot_size = 6.4;
-foot_height = 20;
-internal_heigth = base_thickness + 3/4*total_height;
+foot_size = 8.5;
+foot_height = 8.5;
+internal_heigth = base_thickness + total_height/2;
+
+// TODO - This measures was not verified
+screw_distance_x = 4.75;
+screw_distance_y = 4.75;

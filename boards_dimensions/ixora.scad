@@ -17,4 +17,7 @@ internal_lateral_thickness = 5.5;
 
 foot_size = 6.4;
 foot_height = 6.7;
-internal_heigth = base_thickness + 3/4*total_height;
+internal_heigth = base_thickness + total_height/2;
+
+screw_distance_x = 3.3;
+screw_distance_y = 3.5;

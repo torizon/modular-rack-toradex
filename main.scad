@@ -185,19 +185,19 @@ module support() {
         support_without_screws();
 
         // Screw hole, up left
-        translate([start_inside_cube_x +  3.3, start_inside_cube_y +  3.5, 0])  // Move slightly down to ensure a clean cut
+        translate([start_inside_cube_x +  screw_distance_x, start_inside_cube_y +  screw_distance_y, 0])  // Move slightly down to ensure a clean cut
             cylinder(h = base_thickness + foot_height, r = 1.5, $fn = 100);
 
         // Screw hole, down left
-        translate([start_inside_cube_x + internal_length -  3.3, start_inside_cube_y +  3.5, 0])  // Move slightly down to ensure a clean cut
+        translate([start_inside_cube_x + internal_length -  screw_distance_x, start_inside_cube_y +  screw_distance_y, 0])  // Move slightly down to ensure a clean cut
             cylinder(h = base_thickness + foot_height, r = 1.5, $fn = 100);
 
         // Screw hole, up right
-        translate([start_inside_cube_x +  3.3, start_inside_cube_y + internal_width -  3.5, 0])  // Move slightly down to ensure a clean cut
+        translate([start_inside_cube_x +  screw_distance_x, start_inside_cube_y + internal_width -  screw_distance_y, 0])  // Move slightly down to ensure a clean cut
             cylinder(h = base_thickness + foot_height, r = 1.5, $fn = 100);
 
         // Screw hole, down right
-        translate([start_inside_cube_x + internal_length -  3.3, start_inside_cube_y + internal_width -  3.5, 0])  // Move slightly down to ensure a clean cut
+        translate([start_inside_cube_x + internal_length -  screw_distance_x, start_inside_cube_y + internal_width -  screw_distance_y, 0])  // Move slightly down to ensure a clean cut
             cylinder(h = base_thickness + foot_height, r = 1.5, $fn = 100);
 
         // test_extruder();
