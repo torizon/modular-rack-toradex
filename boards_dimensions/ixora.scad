@@ -2,7 +2,7 @@
 standard_height = 40;
 
 // Total height of the support
-total_height = 50;
+total_height = 40;
 
 internal_length = 90.7;
 internal_width = 126;
@@ -17,7 +17,7 @@ internal_lateral_thickness = 5.5;
 
 foot_size = 6.4;
 foot_height = 6.7;
-internal_heigth = base_thickness + total_height/2;
+internal_heigth = standard_height/2;
 
 screw_distance_x = 3.3;
 screw_distance_y = 3.5;
