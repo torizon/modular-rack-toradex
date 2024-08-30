@@ -1,3 +1,6 @@
+// Necessary to standard pins and holes, even though the height of the support is different
+standard_height = 40;
+
 // Total height of the support
 total_height = 40;
 
