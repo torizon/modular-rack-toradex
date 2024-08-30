@@ -14,4 +14,4 @@ internal_lateral_thickness = 5.5;
 
 foot_size = 5.5;
 foot_height = 6.7;
-internal_heigth = total_height/2;
+internal_heigth = base_thickness + 3/4*total_height;
