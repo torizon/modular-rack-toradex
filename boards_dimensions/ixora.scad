@@ -15,6 +15,6 @@ left_distance_back = 5.5;
 right_distance_back = 5.5;
 internal_lateral_thickness = 5.5;
 
-foot_size = 5.5;
+foot_size = 6.4;
 foot_height = 6.7;
 internal_heigth = base_thickness + 3/4*total_height;
