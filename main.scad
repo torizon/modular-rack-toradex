@@ -1,6 +1,12 @@
+// Select the board
+include <boards_dimensions/boards.scad>
+
 // Board dimensions
 external_length = 161;
 external_width = 161;
+
+start_inside_cube_x = (external_length - internal_length)/2;
+start_inside_cube_y = (external_width - internal_width)/2;
 
 pin_width = 5.5;
 hole_heigth = 6;
@@ -36,16 +42,7 @@ module test_extruder(){
     //     cube([10000, 10000, 10000]);
 }
 
-module support() {
-    // Select the board
-    include <boards_dimensions/boards.scad>
-
-    // Necessary to standard pins and holes, even though the height of the support is different
-    standard_height = 40;
-
-    start_inside_cube_x = (external_length - internal_length)/2;
-    start_inside_cube_y = (external_width - internal_width)/2;
-
+module support_without_screws() {
     distance_major_hole = 0.8*wall_thickness_external;
     distance_minor_hole = (wall_thickness_external - pin_width - 2*space_beetween_hole_pin)/2;
 
@@ -183,7 +180,28 @@ module support() {
         cube([foot_size, foot_size, foot_height]);
 }
 
-difference() {
-    support();
-    // test_extruder();
+module support() {
+    difference() {
+        support_without_screws();
+
+        // Screw hole, up left
+        translate([start_inside_cube_x +  3.3, start_inside_cube_y +  3.5, 0])  // Move slightly down to ensure a clean cut
+            cylinder(h = base_thickness + foot_height, r = 1.5, $fn = 100);
+
+        // Screw hole, down left
+        translate([start_inside_cube_x + internal_length -  3.3, start_inside_cube_y +  3.5, 0])  // Move slightly down to ensure a clean cut
+            cylinder(h = base_thickness + foot_height, r = 1.5, $fn = 100);
+
+        // Screw hole, up right
+        translate([start_inside_cube_x +  3.3, start_inside_cube_y + internal_width -  3.5, 0])  // Move slightly down to ensure a clean cut
+            cylinder(h = base_thickness + foot_height, r = 1.5, $fn = 100);
+
+        // Screw hole, down right
+        translate([start_inside_cube_x + internal_length -  3.3, start_inside_cube_y + internal_width -  3.5, 0])  // Move slightly down to ensure a clean cut
+            cylinder(h = base_thickness + foot_height, r = 1.5, $fn = 100);
+
+        // test_extruder();
+    }
 }
+
+support();
