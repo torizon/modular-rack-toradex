@@ -53,7 +53,7 @@ module support_without_screws() {
         // Internal box
         translate([start_inside_cube_x, start_inside_cube_y, base_thickness])
             cube([internal_length, internal_width, total_height - base_thickness]);
-        
+
         // Remove left wall
         translate([0, wall_thickness_external, base_thickness])
             cube([external_length, start_inside_cube_y - wall_thickness_external - wall_thickness_internal, total_height - base_thickness]);
@@ -77,7 +77,7 @@ module support_without_screws() {
         // Remove front wall, mantaining floor
         translate([external_width - start_inside_cube_x + 2*wall_thickness_internal, wall_thickness_external, 0])
             cube([start_inside_cube_x - 2*wall_thickness_internal, external_width - 2*wall_thickness_external, total_height]);
-        
+
         // Internal hole on the floor for board
         translate([start_inside_cube_x+base_size, start_inside_cube_y+base_size])
             cube([internal_length-2*base_size, internal_width-2*base_size, total_height - base_thickness]);
@@ -149,11 +149,11 @@ module support_without_screws() {
     // Pin on roof, left side
     translate([0, wall_thickness_external/2, total_height]) rotate([90,0,90])
         pin_trapezium(external_length - wall_thickness_external - space_beetween_hole_pin);
-    
+
     // Pin on roof, right side
     translate([0, external_width - wall_thickness_external/2, total_height]) rotate([90,0,90])
         pin_trapezium(external_length - wall_thickness_external - space_beetween_hole_pin);
-    
+
     // Pin on back, left side
         translate([-(hole_heigth - space_beetween_hole_pin), distance_minor_hole + space_beetween_hole_pin, 1.5*distance_major_hole + space_beetween_hole_pin])
             cube([hole_heigth - space_beetween_hole_pin, pin_width, standard_height - 2*distance_major_hole - space_beetween_hole_pin]);
