@@ -4,7 +4,7 @@ This project was created using OpenSCAD, an open-source software for creating 3D
 
 In the example below, we have the vertical stacking of two support models for Toradex Iris or Mallow boards. The visualization was created using the FreeCAD software.
 
-![IrisMallow example](example_iris.png)
+<img src="example_iris.png" width="1000">
 
 ## How to use
 
