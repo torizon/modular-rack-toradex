@@ -2,7 +2,7 @@
 standard_height = 40;
 
 // Total height of the support
-total_height = 40;
+total_height = 50;
 
 internal_length = 111;
 internal_width = 111;
