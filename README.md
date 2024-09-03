@@ -6,6 +6,8 @@ In the example below, we have the vertical stacking of two support models for To
 
 <img src="example_iris.png" width="1000">
 
+It is also possible to use these supports on their side, which significantly improves air circulation. In these cases, it is recommended to use the mounting holes to secure the boards with screws.
+
 ## How to use
 
 To select your board, you must include the desired board on the first lines of `main.scad` file. The dimensions of each board can be found in the `boards_dimensions directory`. After that, export the STL file and use your preferred slicer to create the file for printing.
