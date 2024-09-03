@@ -8,6 +8,10 @@ In the example below, we have the vertical stacking of two support models for To
 
 It is also possible to use these supports on their side, which significantly improves air circulation. In these cases, it is recommended to use the mounting holes to secure the boards with screws.
 
+The figure below shows a CPU temperature comparison for the Toradex Verdin iMX8MP module, where the temperature differences are clearly noticeable when the rack is positioned vertically (one board on top of the other) or horizontally (one board next to the other).
+
+<img src="temperatures.png" width="1000">
+
 ## How to use
 
 To select your board, you must include the desired board on the first lines of `main.scad` file. The dimensions of each board can be found in the `boards_dimensions directory`. After that, export the STL file and use your preferred slicer to create the file for printing.
