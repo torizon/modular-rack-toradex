@@ -118,20 +118,20 @@ module support_without_screws() {
         space_between = 10;
 
         // First square hole on left side
-        translate([0.5*space_between, 0, 2.5*base_thickness])
-            cube([square_size, wall_thickness_external, total_height - wall_thickness_external - 2*base_thickness]);
+        translate([0.5*space_between, 0, 1.35*base_thickness])
+            cube([square_size, wall_thickness_external, total_height - 1/2*wall_thickness_external - 1.35*base_thickness]);
 
         // Second square hole on left side
-        translate([1.5*space_between + square_size, 0, 2.5*base_thickness])
-            cube([square_size, wall_thickness_external, total_height - wall_thickness_external - 2*base_thickness]);
+        translate([1.5*space_between + square_size, 0, 1.35*base_thickness])
+            cube([square_size, wall_thickness_external, total_height - 1/2*wall_thickness_external - 1.35*base_thickness]);
 
         // First square hole on right side
-        translate([0.5*space_between, external_width - wall_thickness_external, 2.5*base_thickness])
-            cube([square_size, wall_thickness_external, total_height - wall_thickness_external - 2*base_thickness]);
+        translate([0.5*space_between, external_width - wall_thickness_external, 1.35*base_thickness])
+            cube([square_size, wall_thickness_external, total_height - 1/2*wall_thickness_external - 1.35*base_thickness]);
 
         // Second square hole on right side
-        translate([1.5*space_between + square_size, external_width - wall_thickness_external, 2.5*base_thickness])
-            cube([square_size, wall_thickness_external, total_height - wall_thickness_external - 2*base_thickness]);
+        translate([1.5*space_between + square_size, external_width - wall_thickness_external, 1.35*base_thickness])
+            cube([square_size, wall_thickness_external, total_height - 1/2*wall_thickness_external - 1.35*base_thickness]);
     }
 
     // Pin on roof, left side
