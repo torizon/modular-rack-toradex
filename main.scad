@@ -121,29 +121,17 @@ module support_without_screws() {
         translate([0.5*space_between, 0, 2.5*base_thickness])
             cube([square_size, wall_thickness_external, total_height - wall_thickness_external - 2*base_thickness]);
 
-        translate([0.5*space_between + distance_major_hole, distance_minor_hole, 2.5*base_thickness - hole_heigth])
-            cube([square_size - 2*distance_major_hole, pin_width + 2*space_beetween_hole_pin, hole_heigth]);
-
         // Second square hole on left side
         translate([1.5*space_between + square_size, 0, 2.5*base_thickness])
             cube([square_size, wall_thickness_external, total_height - wall_thickness_external - 2*base_thickness]);
-
-        translate([1.5*space_between + square_size + distance_major_hole, distance_minor_hole, 2.5*base_thickness - hole_heigth])
-            cube([square_size - 2*distance_major_hole, pin_width + 2*space_beetween_hole_pin, hole_heigth]);
 
         // First square hole on right side
         translate([0.5*space_between, external_width - wall_thickness_external, 2.5*base_thickness])
             cube([square_size, wall_thickness_external, total_height - wall_thickness_external - 2*base_thickness]);
 
-        translate([0.5*space_between + distance_major_hole, external_width - wall_thickness_external + distance_minor_hole, 2.5*base_thickness - hole_heigth])
-            cube([square_size - 2*distance_major_hole, pin_width + 2*space_beetween_hole_pin, hole_heigth]);
-
         // Second square hole on right side
         translate([1.5*space_between + square_size, external_width - wall_thickness_external, 2.5*base_thickness])
             cube([square_size, wall_thickness_external, total_height - wall_thickness_external - 2*base_thickness]);
-
-        translate([1.5*space_between + square_size + distance_major_hole, external_width - wall_thickness_external + distance_minor_hole, 2.5*base_thickness - hole_heigth])
-            cube([square_size - 2*distance_major_hole, pin_width + 2*space_beetween_hole_pin, hole_heigth]);
     }
 
     // Pin on roof, left side
