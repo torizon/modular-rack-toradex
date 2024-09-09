@@ -14,7 +14,7 @@ hole_heigth = 6;
 wall_thickness_external = 10;
 wall_thickness_internal = 5;
 
-space_beetween_hole_pin = 0.15;
+space_beetween_hole_pin = 0.20;
 
 module hole_trapezium(height){
     linear_extrude(height = height){
