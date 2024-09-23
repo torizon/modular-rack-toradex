@@ -106,15 +106,7 @@ module support_without_screws() {
         translate([0, external_width - wall_thickness_external/2, 0]) rotate([90,0,90])
             hole_trapezium(external_length - wall_thickness_external);
 
-        // Hole on the front, left side
-        translate([external_length - hole_heigth - space_between_hole_pin, distance_minor_hole, 1.5*distance_major_hole])
-            cube([external_length - hole_heigth - space_between_hole_pin, pin_width + 2*space_between_hole_pin, standard_height - 2*distance_major_hole]);
-
-        // Hole on the front, right side
-        translate([external_length - hole_heigth - space_between_hole_pin, external_width - distance_minor_hole - 2*space_between_hole_pin - pin_width, 1.5*distance_major_hole])
-            cube([external_length - hole_heigth - space_between_hole_pin, pin_width + 2 * space_between_hole_pin, standard_height - 2*distance_major_hole]);
-
-        square_size = 68;
+        square_size = 70.5;
         space_between = 10;
 
         // First square hole on left side
@@ -141,15 +133,6 @@ module support_without_screws() {
     // Pin on roof, right side
     translate([0, external_width - wall_thickness_external/2, total_height]) rotate([90,0,90])
         pin_trapezium(external_length - wall_thickness_external - space_between_hole_pin);
-
-    // Pin on back, left side
-        translate([-(hole_heigth - space_between_hole_pin), distance_minor_hole + space_between_hole_pin, 1.5*distance_major_hole + space_between_hole_pin])
-            cube([hole_heigth - space_between_hole_pin, pin_width, standard_height - 2*distance_major_hole - space_between_hole_pin]);
-
-    // Pin on back, right side
-        translate([-(hole_heigth - space_between_hole_pin), external_width - distance_minor_hole - space_between_hole_pin - pin_width, 1.5*distance_major_hole + space_between_hole_pin])
-            cube([hole_heigth - space_between_hole_pin, pin_width, standard_height - 2*distance_major_hole - space_between_hole_pin]);
-
 
     // Foot back left
     translate([start_inside_cube_x, start_inside_cube_y, base_thickness])
