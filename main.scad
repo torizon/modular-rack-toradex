@@ -1,11 +1,6 @@
 // Select the board
 include <boards_dimensions/boards.scad>
 
-pin_width = 5.5;
-hole_heigth = 6;
-
-space_between_hole_pin = 0.20;
-
 module hole_trapezium(height){
     linear_extrude(height = height){
         polygon(points=[[-3,hole_heigth],[-2.4, 0],[2.4, 0],[3,hole_heigth]]);
