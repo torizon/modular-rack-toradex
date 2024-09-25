@@ -1,18 +1,8 @@
 // Select the board
 include <boards_dimensions/boards.scad>
 
-// Board dimensions
-external_length = 161;
-external_width = 161;
-
-start_inside_cube_x = (external_length - internal_length)/2;
-start_inside_cube_y = (external_width - internal_width)/2;
-
 pin_width = 5.5;
 hole_heigth = 6;
-
-wall_thickness_external = 10;
-wall_thickness_internal = 5;
 
 space_between_hole_pin = 0.20;
 
@@ -60,7 +50,7 @@ module support_without_screws() {
 
         // Remove right wall
         translate([0, start_inside_cube_y + internal_width + wall_thickness_internal, base_thickness])
-            cube([external_length, start_inside_cube_y - wall_thickness_external - wall_thickness_internal, total_height - base_thickness]);
+            cube([external_length, external_width - start_inside_cube_y - internal_width - wall_thickness_external - wall_thickness_internal, total_height - base_thickness]);
 
         // Remove back wall, including floor
         translate([0, wall_thickness_external, base_thickness])

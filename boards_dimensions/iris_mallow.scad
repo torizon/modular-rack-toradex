@@ -1,3 +1,10 @@
+// Board dimensions
+external_length = 161;
+external_width = 161;
+
+wall_thickness_external = 10;
+wall_thickness_internal = 5;
+
 // Necessary to standard pins and holes, even though the height of the support is different
 standard_height = 40;
 
@@ -6,6 +13,9 @@ total_height = 40;
 
 internal_length = 72.5;
 internal_width = 100.5;
+
+start_inside_cube_x = (external_length - internal_length)/2;
+start_inside_cube_y = (external_width - internal_width)/2;
 
 base_thickness = 6;
 base_size = 5.5;
